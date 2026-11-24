@@ -1,0 +1,80 @@
+<p>phoneticsearch works!</p>
+<!-- 
+ xxxxxxxxxxxxxxxxxAPPROACH 1xxxxxxxxxxxxxxxxxxxxxx
+  <h2>Phonetic Library Search</h2>
+  
+  <input 
+    type="text" 
+    [(ngModel)]="searchQuery" 
+    placeholder="Type any name" 
+    style="padding: 8px; width: 250px;"
+  >
+
+  <ul>
+    <li *ngFor="let person of filteredPeople">
+      {{ person.name }}
+    </li>
+  </ul>
+</div> -->
+
+ <!-- //xxxxxxxxxxxxxxxxAPPROACH  2
+ <h2>Phonetic Library Search</h2>
+<div style="padding:20px">
+
+    <input
+        pInputText
+        type="text"
+        (input)="contactsTable.filterGlobal($any($event.target).value, 'soundexContains')"
+        placeholder="Search Name"
+    />
+
+    <p-table
+        #contactsTable
+        [value]="people" [globalFilterFields]="['name']">
+
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-person>
+            <tr>
+                <td>{{ person.name }}</td>
+            </tr>
+        </ng-template>
+
+    </p-table>
+
+</div> -->
+
+<!-- //xxxxxxxxxxxxxxxxAPPROACH  3 -->
+ <h2>Phonetic Library Search</h2>
+<div style="padding:20px">
+
+    <input pInputText type="text" [(ngModel)]="searchQuery" (ngModelChange)="filterPeople($event)"
+    placeholder="Search any" />
+
+    <p-table #contactsTable [value]="filteredPeople" [globalFilterFields]="['name']">
+
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Extension</th>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-person>
+            <tr>
+                <td>{{ person.name }}</td>
+                <td>{{ person.department }}</td>
+                <td>{{ person.extension }}</td>
+            </tr>
+        </ng-template>
+
+    </p-table>
+
+
+
+</div>

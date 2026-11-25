@@ -1,0 +1,96 @@
+
+<div class="contact-search-container">
+
+    <h2>Contact Directory</h2>
+
+    <label for="csvUrl">CSV URL</label>
+
+    <input type="url" id="csvUrl" [(ngModel)]="csvUrl" placeholder="Enter CSV URL" [disabled]="downloading"/>
+
+    <!-- Download Contacts Button -->
+    <button
+        type="button"
+        (click)="downloadContacts()"
+        [disabled]="downloading">
+
+        {{ downloading ? 'Downloading...' : 'Download Contacts' }}
+
+    </button>
+
+    <!-- Error message -->
+    @if (errorMessage) {
+        <p class="error-message">{{ errorMessage }}</p>
+    }
+
+    <!-- Display contacts after download -->
+    <!-- @if (contacts.length > 0) { -->
+
+        <!-- Search Box -->
+        <div class="search-box">
+            <input
+                type="text"
+                placeholder="Search by name or phone number..."
+                [value]="searchText"
+                (input)="onSearchChange($any($event.target).value)"
+            />
+
+            @if (searchText) {
+                <button type="button" (click)="clearSearch()">
+                    Clear
+                </button>
+            }
+        </div>
+
+        <!-- Contact Count -->
+        <p>
+            @if (searchText.trim()) {
+                Search results: {{ filteredContacts.length }}
+            } @else {
+                Total contacts: {{ totalContacts }}
+            }
+        </p>
+
+        <!-- Contacts Table -->
+        <table class="contact-table">
+
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @if (searchText.trim()) {
+
+                    @for (contact of filteredContacts; track contact.id) {
+                        <tr>
+                            <td>{{ contact.name }}</td>
+                            <td>{{ contact.phone }}</td>
+                        </tr>
+                    }
+
+                    @if (filteredContacts.length === 0) {
+                        <tr>
+                            <td colspan="2">No contacts found.</td>
+                        </tr>
+                    }
+
+                } @else {
+
+                    @for (contact of contacts; track contact.id) {
+                        <tr>
+                            <td>{{ contact.name }}</td>
+                            <td>{{ contact.phone }}</td>
+                        </tr>
+                    }
+
+                }
+
+            </tbody>
+        </table>
+
+    <!-- } -->
+
+</div>

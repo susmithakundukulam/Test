@@ -10,12 +10,13 @@ import { FilterService } from 'primeng/api';
 import { CsvServiceService } from './csv-service.service';
 import { CsvComponent } from './csv/csv.component';
 import { PhoneticsearchComponent } from './phoneticsearch/phoneticsearch.component';
+import { ContactSearchComponent } from './contact-search/contact-search.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html', 
-  imports:[CommonModule, FormsModule, TableModule, InputTextModule, CsvComponent, PhoneticsearchComponent],
+  imports:[CommonModule, FormsModule, TableModule, InputTextModule, CsvComponent, PhoneticsearchComponent, ContactSearchComponent],
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{

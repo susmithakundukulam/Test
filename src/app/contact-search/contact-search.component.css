@@ -1,0 +1,80 @@
+.contact-search-container {
+    padding: 20px;
+    max-width: 600px;
+}
+
+.search-box {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.search-box button {
+    padding: 8px 14px;
+    cursor: pointer;
+}
+
+.contact-count,
+.result-count {
+    font-size: 13px;
+    color: #666;
+}
+
+.contact-list {
+    margin-top: 15px;
+}
+
+.contact-item {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.contact-name {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.contact-phone {
+    color: #666;
+    font-size: 14px;
+}
+
+.contact-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.contact-table th,
+.contact-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.contact-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.contact-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.no-results,
+.search-hint {
+    color: #777;
+    margin-top: 20px;
+}
+
+.error-message {
+    color: red;
+}
